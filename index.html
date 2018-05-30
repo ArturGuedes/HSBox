@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="js/aframe-particle-system-component.min.js"></script>
+
+    <style>
+        body {
+            background: black;
+        }
+
+    </style>
+</head>
+
+<body>
+    <a-scene fog="color:#000;density:50;far:20;near:0">
+        <a-assets>
+            <a-asset-item id="object" src="models/HSBox.obj"></a-asset-item>
+            <a-asset-item id="material" src="models/HSBox.mtl"></a-asset-item>
+        </a-assets>
+
+        <a-obj-model src="#object" mtl="#material" position="0 -1 0">
+           <a-entity position="0 2.25 -15" particle-system="preset:dust;color:#fcff77;size:1;particleCount:1000;maxParticleCount:3000"></a-entity>
+            <a-animation attribute="rotation" repeat="indefinite" to="0 360 0" dur="25000"></a-animation>
+        </a-obj-model>
+
+        <a-entity camera position="0 7 7" rotation="-45 0 0"></a-entity>
+
+        <a-entity light="color:#BBB;type:ambient;intensity:2"></a-entity>
+
+        <a-entity light="color:#fcff77;intensity:0.3;groundColor:#ffffff" position="3.2 2.2 0"></a-entity>
+
+
+
+    </a-scene>
+
+</body>
+
+</html>
